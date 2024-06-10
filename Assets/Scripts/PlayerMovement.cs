@@ -14,12 +14,14 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        animator = gameObject.GetComponentInChildren<Animator>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        animator.applyRootMotion = false;
         rb.velocity = moveInput * moveSpeed;
     }
 
